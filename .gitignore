@@ -1,0 +1,3 @@
+*.sqllite3
+venv/
+__pycache__/
