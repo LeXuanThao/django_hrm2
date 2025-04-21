@@ -16,7 +16,7 @@ class AdminAccount(admin.ModelAdmin):
 
 @admin.register(Employee)
 class AdminEmployee(admin.ModelAdmin):
-    list_display = ('id', 'account___email', 'fullname', 'birth_day', 'hire_date', 'termination_date')
+    list_display = ('id', 'account___email', 'fullname', 'birth_day', 'hire_date', 'seniority', 'termination_date')
     search_fields = ('first_name', 'last_name', 'account__email')
     list_filter = ('hire_date', 'termination_date')
     ordering = ('-hire_date',)
@@ -30,4 +30,8 @@ class AdminEmployee(admin.ModelAdmin):
     def account___email(self, obj):
         return obj.account.email if obj.account else None
     account___email.short_description = 'Account'
+
+    def seniority(self, obj):
+        return str(obj.seniority()) + " years"
+    seniority.short_description = 'Seniority'
     
