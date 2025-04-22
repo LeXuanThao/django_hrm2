@@ -32,6 +32,5 @@ class AdminEmployee(admin.ModelAdmin):
     account___email.short_description = 'Account'
 
     def seniority(self, obj):
-        return str(obj.seniority()) + " years"
-    seniority.short_description = 'Seniority'
+        return str(obj.seniority) + " years"
     
